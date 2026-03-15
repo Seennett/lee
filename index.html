@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>삼성생명 GFC — 기업재무컨설턴트 모집</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700;900&family=Noto+Sans+KR:wght@300;400;500;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:#002855; --blue:#004EA2; --sky:#1A7FD4;
+  --gold:#C8A84B; --light:#F4F7FB; --white:#FFFFFF;
+  --dark:#0A1628; --muted:#6B7E9A; --card:rgba(255,255,255,0.06);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--white);color:var(--dark);font-family:'Noto Sans KR',sans-serif;overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:16px 60px;background:rgba(0,40,85,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(200,168,75,.2);}
+.nav-logo{display:flex;align-items:center;gap:12px;}
+.nav-badge{background:var(--gold);color:var(--navy);font-family:'Oswald',sans-serif;font-size:18px;font-weight:700;padding:4px 12px;border-radius:3px;letter-spacing:2px;}
+.nav-text{color:var(--white);font-size:13px;font-weight:300;letter-spacing:2px;}
+nav ul{list-style:none;display:flex;gap:32px;}
+nav a{color:rgba(255,255,255,.7);font-size:12px;font-weight:500;letter-spacing:1px;text-decoration:none;transition:color .3s;}
+nav a:hover{color:var(--gold);}
+.nav-cta{background:var(--gold)!important;color:var(--navy)!important;padding:9px 22px;border-radius:3px;font-weight:700!important;}
+.nav-cta:hover{background:#e0c060!important;transform:translateY(-1px);}
+
+/* HERO */
+#hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1800&q=85') center/cover no-repeat;animation:slowZoom 18s ease-in-out infinite alternate;}
+@keyframes slowZoom{0%{transform:scale(1) translateX(0);}100%{transform:scale(1.07) translateX(-20px);}}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,28,68,.96) 0%,rgba(0,28,68,.85) 50%,rgba(0,28,68,.3) 100%);}
+.hero-left{position:relative;z-index:2;padding:140px 60px 80px;}
+.hero-right{position:relative;z-index:2;padding:140px 40px 80px 0;}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(200,168,75,.15);border:1px solid rgba(200,168,75,.4);color:var(--gold);padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:28px;opacity:0;animation:fadeUp .7s forwards .2s;}
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--gold);border-radius:50%;}
+h1{font-family:'Noto Serif KR',sans-serif;font-size:clamp(40px,5.5vw,72px);font-weight:900;line-height:1.15;color:var(--white);margin-bottom:20px;opacity:0;animation:fadeUp .7s forwards .4s;}
+h1 .gold{color:var(--gold);}
+h1 .outline{-webkit-text-stroke:1.5px rgba(255,255,255,.35);color:transparent;}
+.hero-sub{font-size:16px;line-height:1.9;color:rgba(255,255,255,.7);max-width:460px;margin-bottom:40px;opacity:0;animation:fadeUp .7s forwards .6s;}
+.hero-stats{display:flex;gap:32px;margin-bottom:44px;opacity:0;animation:fadeUp .7s forwards .75s;}
+.hstat{display:flex;flex-direction:column;gap:3px;border-left:2px solid var(--gold);padding-left:14px;}
+.hstat-num{font-family:'Oswald',sans-serif;font-size:26px;font-weight:700;color:var(--gold);}
+.hstat-label{font-size:11px;color:rgba(255,255,255,.6);letter-spacing:1px;}
+.hero-btns{display:flex;gap:14px;opacity:0;animation:fadeUp .7s forwards .9s;}
+.btn-gold{background:var(--gold);color:var(--navy);padding:15px 32px;border-radius:3px;font-weight:700;font-size:13px;letter-spacing:1px;text-decoration:none;transition:all .3s;display:inline-block;}
+.btn-gold:hover{background:#e0c060;transform:translateY(-2px);box-shadow:0 12px 36px rgba(200,168,75,.4);}
+.btn-outline{border:1px solid rgba(255,255,255,.35);color:var(--white);padding:15px 32px;border-radius:3px;font-size:13px;letter-spacing:1px;text-decoration:none;transition:all .3s;display:inline-block;}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+.hero-card{background:rgba(255,255,255,.07);border:1px solid rgba(200,168,75,.2);border-radius:16px;padding:36px;backdrop-filter:blur(12px);opacity:0;animation:fadeIn 1s forwards .7s;}
+.hc-title{font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:3px;color:var(--gold);margin-bottom:20px;text-transform:uppercase;}
+.hc-items{display:flex;flex-direction:column;}
+.hc-item{display:flex;align-items:flex-start;gap:14px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.07);}
+.hc-item:last-child{border-bottom:none;}
+.hc-icon{font-size:22px;flex-shrink:0;margin-top:2px;}
+.hc-text h4{font-size:15px;font-weight:700;color:var(--white);margin-bottom:4px;}
+.hc-text p{font-size:12px;color:rgba(255,255,255,.55);line-height:1.6;}
+.income-pill{background:var(--gold);color:var(--navy);font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;padding:10px 20px;border-radius:8px;text-align:center;margin-top:20px;}
+.income-pill small{font-size:12px;font-weight:400;display:block;}
+.scroll-hint{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.4);font-size:10px;letter-spacing:3px;opacity:0;animation:fadeIn .8s forwards 1.5s;}
+.scroll-line{width:1px;height:44px;background:linear-gradient(to bottom,var(--gold),transparent);animation:scrollAnim 1.6s ease-in-out infinite;}
+@keyframes scrollAnim{0%,100%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform:scaleY(1);transform-origin:bottom;}}
+
+/* SECTIONS */
+section{padding:100px 60px;}
+.sec-tag{font-size:11px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--sky);margin-bottom:12px;}
+.sec-title{font-family:'Noto Serif KR',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:900;line-height:1.15;margin-bottom:16px;}
+.sec-title .acc{color:var(--blue);}
+.sec-sub{font-size:15px;color:var(--muted);line-height:1.9;max-width:560px;}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s,transform .7s;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* WHY */
+#why{background:var(--light);}
+.why-header{text-align:center;margin-bottom:72px;}
+.why-header .sec-sub{margin:0 auto;}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.why-card{background:var(--white);border-radius:14px;padding:36px 28px;position:relative;overflow:hidden;border:1px solid rgba(0,78,162,.08);transition:all .35s;}
+.why-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--sky));transform:scaleX(0);transform-origin:left;transition:transform .4s;}
+.why-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,78,162,.12);}
+.why-card:hover::before{transform:scaleX(1);}
+.why-num{font-family:'Oswald',sans-serif;font-size:60px;font-weight:700;color:rgba(0,78,162,.06);line-height:1;position:absolute;top:16px;right:20px;}
+.why-icon{font-size:36px;margin-bottom:20px;}
+.why-card h3{font-family:'Noto Serif KR',sans-serif;font-size:18px;font-weight:700;margin-bottom:12px;color:var(--navy);}
+.why-card p{font-size:13px;line-height:1.8;color:var(--muted);}
+.why-hl{font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:var(--blue);margin-top:12px;display:block;}
+
+/* VIDEO */
+#video{background:var(--navy);padding:100px 60px;}
+.video-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1200px;margin:0 auto;}
+.video-left .sec-tag{color:var(--gold);}
+.video-left .sec-title{color:var(--white);}
+.video-left .sec-title .acc{color:var(--gold);}
+.video-left .sec-sub{color:rgba(255,255,255,.6);}
+.vpoints{display:flex;flex-direction:column;gap:14px;margin-top:32px;}
+.vp{display:flex;align-items:center;gap:12px;color:rgba(255,255,255,.8);font-size:14px;}
+.vp::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0;font-size:16px;}
+.video-frame{border-radius:14px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.6);border:1px solid rgba(200,168,75,.2);aspect-ratio:16/9;}
+.video-frame iframe{width:100%;height:100%;border:none;display:block;}
+
+/* GALLERY */
+#gallery{background:var(--navy);padding:80px 60px;}
+.gallery-header{text-align:center;margin-bottom:56px;}
+.gallery-header .sec-tag{color:var(--gold);}
+.gallery-header .sec-title{color:var(--white);}
+.gallery-big{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:1100px;margin:0 auto 24px;}
+.gallery-small{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1100px;margin:0 auto;}
+.gimg{border-radius:14px;overflow:hidden;position:relative;box-shadow:0 20px 50px rgba(0,0,0,.5);background:linear-gradient(135deg,#002855,#004EA2);}
+.gimg img{width:100%;object-fit:cover;display:block;transition:transform .4s;}
+.gimg:hover img{transform:scale(1.05);}
+.gimg-big img{height:320px;}
+.gimg-sm img{height:200px;}
+.gimg-caption{position:absolute;bottom:0;left:0;right:0;padding:20px;background:linear-gradient(to top,rgba(0,28,68,.95),transparent);}
+.gimg-caption .gtag{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;}
+.gimg-caption h4{font-size:15px;font-weight:700;color:var(--white);}
+.gimg-caption p{font-size:11px;color:rgba(255,255,255,.6);margin-top:3px;}
+.gimg-side{display:flex;flex-direction:column;gap:20px;}
+.gimg-side .gimg img{height:145px;}
+
+/* SALES */
+#sales{background:var(--white);}
+.plans-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px;}
+.plan-card{border-radius:12px;overflow:hidden;border:1px solid rgba(0,78,162,.1);transition:all .3s;}
+.plan-card:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,78,162,.12);}
+.plan-head{padding:24px 22px 20px;background:linear-gradient(135deg,var(--navy),var(--blue));display:flex;flex-direction:column;gap:6px;}
+.plan-head h3{font-family:'Oswald',sans-serif;font-size:17px;letter-spacing:1px;color:var(--gold);}
+.plan-head p{font-size:11px;color:rgba(255,255,255,.7);}
+.plan-body{padding:22px;background:var(--light);}
+.plan-body ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.plan-body li{font-size:12px;color:#344563;display:flex;gap:8px;align-items:flex-start;line-height:1.5;}
+.plan-body li::before{content:'▸';color:var(--blue);flex-shrink:0;}
+
+/* INCOME */
+#income{background:linear-gradient(135deg,var(--navy) 0%,#004080 100%);}
+.income-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.income-left .sec-tag{color:var(--gold);}
+.income-left .sec-title{color:var(--white);}
+.income-left .sec-title .acc{color:var(--gold);}
+.income-left .sec-sub{color:rgba(255,255,255,.65);}
+.ibars{display:flex;flex-direction:column;gap:20px;margin-top:40px;}
+.ibar{display:flex;flex-direction:column;gap:8px;}
+.ibar-top{display:flex;justify-content:space-between;align-items:center;}
+.ibar-label{font-size:13px;color:rgba(255,255,255,.7);}
+.ibar-val{font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;color:var(--gold);}
+.ibar-track{height:8px;background:rgba(255,255,255,.1);border-radius:4px;overflow:hidden;}
+.ibar-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--sky),var(--gold));}
+.sup-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.sup-item{background:rgba(255,255,255,.06);border:1px solid rgba(200,168,75,.15);border-radius:10px;padding:18px 20px;display:flex;gap:12px;align-items:flex-start;}
+.sup-icon{font-size:20px;}
+.sup-text h4{font-size:13px;font-weight:700;color:var(--white);margin-bottom:4px;}
+.sup-text p{font-size:11px;color:rgba(255,255,255,.5);line-height:1.5;}
+
+/* TRAINING */
+#training{background:var(--light);}
+.training-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.tsteps{display:flex;flex-direction:column;}
+.tstep{display:flex;gap:20px;align-items:flex-start;padding:24px 0;border-bottom:1px solid rgba(0,78,162,.08);}
+.tstep:last-child{border-bottom:none;}
+.tstep-num{width:40px;height:40px;flex-shrink:0;background:var(--blue);color:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-size:16px;font-weight:700;}
+.tstep-body h4{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.tstep-body p{font-size:13px;color:var(--muted);line-height:1.7;}
+.tstep-badge{display:inline-block;background:rgba(0,78,162,.1);color:var(--blue);font-size:10px;font-weight:600;letter-spacing:1px;padding:3px 10px;border-radius:20px;margin-top:8px;}
+.career-cards{display:flex;flex-direction:column;gap:14px;}
+.career-card{background:var(--white);border-radius:12px;padding:22px 24px;border:1px solid rgba(0,78,162,.1);display:flex;gap:16px;align-items:center;transition:all .3s;}
+.career-card:hover{border-color:var(--blue);transform:translateX(4px);}
+.cc-icon{font-size:28px;}
+.cc-body h4{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:4px;}
+.cc-body p{font-size:12px;color:var(--muted);line-height:1.6;}
+.cc-arrow{margin-left:auto;color:var(--blue);font-size:18px;}
+
+/* STORIES */
+#stories{background:var(--navy);}
+.stories-header{text-align:center;margin-bottom:56px;}
+.stories-header .sec-tag{color:var(--gold);}
+.stories-header .sec-title{color:var(--white);}
+.stories-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:900px;margin:0 auto;}
+.story-card{background:rgba(255,255,255,.05);border:1px solid rgba(200,168,75,.15);border-radius:14px;padding:32px;position:relative;overflow:hidden;transition:all .3s;}
+.story-card:hover{background:rgba(255,255,255,.08);transform:translateY(-4px);}
+.story-img{width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:20px;display:block;}
+.story-fallback{width:100%;height:160px;border-radius:8px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;font-size:48px;background:rgba(255,255,255,.06);border:1px solid rgba(200,168,75,.15);}
+.story-quote{font-size:32px;color:var(--gold);margin-bottom:12px;line-height:1;}
+.story-text{font-size:14px;color:rgba(255,255,255,.75);line-height:1.8;margin-bottom:20px;font-style:italic;}
+.story-person{display:flex;align-items:center;gap:12px;}
+.story-avatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;border:2px solid rgba(200,168,75,.4);overflow:hidden;}
+.story-avatar svg{width:100%;height:100%;}
+.story-info h4{font-size:13px;font-weight:700;color:var(--gold);}
+.story-info p{font-size:11px;color:rgba(255,255,255,.5);}
+.story-badge{margin-left:auto;font-family:'Oswald',sans-serif;font-size:13px;color:var(--gold);background:rgba(200,168,75,.1);padding:4px 12px;border-radius:20px;}
+
+/* WHO */
+#who{background:var(--light);}
+.who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.who-card{background:var(--white);border-radius:12px;padding:28px 24px;border:1px solid rgba(0,78,162,.08);transition:all .3s;}
+.who-card:hover{border-color:var(--blue);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,78,162,.1);}
+.who-icon{font-size:32px;margin-bottom:16px;}
+.who-card h3{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:8px;}
+.who-card p{font-size:13px;color:var(--muted);line-height:1.7;}
+
+/* CONTACT */
+#contact{background:var(--white);}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.contact-left .sec-title .acc{color:var(--blue);}
+.contact-left > p{font-size:15px;color:var(--muted);line-height:1.9;margin-bottom:32px;}
+.cinfo-list{display:flex;flex-direction:column;gap:14px;}
+.cinfo{display:flex;align-items:center;gap:16px;padding:16px 20px;border-radius:10px;background:var(--light);border:1px solid rgba(0,78,162,.08);transition:border-color .3s;}
+.cinfo:hover{border-color:var(--blue);}
+.cinfo-icon{font-size:20px;}
+.cinfo-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:2px;}
+.cinfo-val{font-size:15px;font-weight:700;color:var(--navy);}
+.contact-form{display:flex;flex-direction:column;gap:14px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.fg{display:flex;flex-direction:column;gap:6px;}
+.fg label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
+.fg input,.fg select,.fg textarea{background:var(--light);border:1px solid rgba(0,78,162,.12);border-radius:8px;padding:13px 16px;color:var(--dark);font-family:'Noto Sans KR',sans-serif;font-size:14px;outline:none;transition:border-color .3s;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--blue);background:var(--white);}
+.fg textarea{min-height:110px;resize:vertical;}
+.btn-sms{background:var(--navy);color:var(--white);padding:16px;border:none;border-radius:8px;font-family:'Noto Sans KR',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:all .3s;width:100%;}
+.btn-sms:hover{background:var(--blue);box-shadow:0 10px 30px rgba(0,78,162,.3);transform:translateY(-1px);}
+.btn-kakao{background:#FEE500;color:#3A1D1D;padding:16px;border:none;border-radius:8px;font-family:'Noto Sans KR',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:all .3s;width:100%;display:flex;align-items:center;justify-content:center;gap:8px;}
+.btn-kakao:hover{background:#f5d800;box-shadow:0 10px 30px rgba(254,229,0,.4);transform:translateY(-1px);}
+.form-note{font-size:11px;color:var(--muted);text-align:center;line-height:1.7;}
+
+/* FOOTER */
+footer{background:var(--dark);padding:48px 60px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(200,168,75,.15);}
+.footer-left{display:flex;flex-direction:column;gap:6px;}
+.footer-badge{font-family:'Oswald',sans-serif;font-size:20px;color:var(--gold);letter-spacing:3px;}
+footer p{font-size:11px;color:rgba(255,255,255,.35);}
+.footer-links{display:flex;gap:20px;}
+.footer-links a{font-size:11px;color:rgba(255,255,255,.4);text-decoration:none;transition:color .3s;}
+.footer-links a:hover{color:var(--gold);}
+.disclaimer{background:var(--light);padding:20px 60px;border-top:1px solid rgba(0,0,0,.06);}
+.disclaimer p{font-size:11px;color:var(--muted);line-height:1.8;}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  nav{padding:16px 24px;}
+  nav ul{display:none;}
+  #hero{grid-template-columns:1fr;}
+  .hero-left{padding:100px 24px 40px;}
+  .hero-right{padding:0 24px 60px;}
+  section{padding:72px 24px;}
+  #video,#gallery,#income{padding:72px 24px;}
+  .why-grid,.plans-grid{grid-template-columns:1fr 1fr;}
+  .video-inner,.income-inner,.training-inner,.contact-inner{grid-template-columns:1fr;gap:48px;}
+  .who-grid{grid-template-columns:1fr 1fr;}
+  .stories-grid{grid-template-columns:1fr;}
+  .gallery-big,.gallery-small{grid-template-columns:1fr;}
+  footer{flex-direction:column;gap:20px;text-align:center;}
+  .disclaimer{padding:20px 24px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="nav-badge">GFC</div>
+    <div class="nav-text">삼성생명 기업재무컨설턴트</div>
+  </div>
+  <ul>
+    <li><a href="#why">GFC란?</a></li>
+    <li><a href="#sales">영업모델</a></li>
+    <li><a href="#income">소득체계</a></li>
+    <li><a href="#training">교육</a></li>
+    <li><a href="#stories">성공사례</a></li>
+    <li><a href="#contact" class="nav-cta">지금 상담신청</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-ov"></div>
+  <div class="hero-left">
+    <div class="hero-badge">삼성생명 GFC 모집 · Group Financial Consultant</div>
+    <h1>금융전문가로서의<br><span class="gold">내일,</span><br><span class="outline">시작부터 달라야</span><br>합니다</h1>
+    <p class="hero-sub">기업보험시장의 개척자, 삼성생명 GFC.<br>중소·중견기업의 Risk Financing Consulting을<br>수행하는 대한민국 최고의 기업재무 전문가입니다.</p>
+    <div class="hero-stats">
+      <div class="hstat"><span class="hstat-num">315.7조</span><span class="hstat-label">삼성생명 총자산</span></div>
+      <div class="hstat"><span class="hstat-num">5,000명</span><span class="hstat-label">전국 GFC 활동</span></div>
+      <div class="hstat"><span class="hstat-num">20년</span><span class="hstat-label">NCSI 1위 연속</span></div>
+    </div>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-gold">지금 상담 신청하기</a>
+      <a href="#why" class="btn-outline">GFC 더 알아보기</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card">
+      <div class="hc-title">GFC 4대 매력</div>
+      <div class="hc-items">
+        <div class="hc-item"><span class="hc-icon">🏛️</span><div class="hc-text"><h4>안정적인 평생직업</h4><p>주 연령대 35~60대 · 위촉 10년↑ 22.3% · 평균 활동 5.7년</p></div></div>
+        <div class="hc-item"><span class="hc-icon">💰</span><div class="hc-text"><h4>고소득 금융전문가</h4><p>평균 월 416만원 · 상위 10% 월 1,502만원</p></div></div>
+        <div class="hc-item"><span class="hc-icon">📚</span><div class="hc-text"><h4>삼성만의 성공 ABC</h4><p>초보도 전문가로! 체계적 양성 프로그램</p></div></div>
+        <div class="hc-item"><span class="hc-icon">🌐</span><div class="hc-text"><h4>종합금융 컨설팅</h4><p>생명·자동차·화재보험, 펀드, 신용카드까지</p></div></div>
+      </div>
+      <div class="income-pill">월 평균 소득 416만원<br><small>상위 30% 평균 981만원 (2023년 기준)</small></div>
+    </div>
+  </div>
+  <div class="scroll-hint"><div class="scroll-line"></div>SCROLL</div>
+</section>
+
+<!-- WHY GFC -->
+<section id="why">
+  <div class="why-header reveal">
+    <div class="sec-tag">Why GFC?</div>
+    <h2 class="sec-title">삼성생명 <span class="acc">GFC</span>와 함께<br>'제2의 인생'을 준비하세요</h2>
+    <p class="sec-sub">기업보험시장이라는 블루오션에서, 삼성생명의 브랜드와 시스템을 등에 업고 성공 스토리를 만들어 가세요.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal"><div class="why-num">1</div><div class="why-icon">🏛️</div><h3>안정적인 평생직업</h3><p>나이 제한 없는 평생 현역 직업. 위촉 5년 이상 34.5%, 10년 이상 22.3%.</p><span class="why-hl">평균 5.7년 활동</span></div>
+    <div class="why-card reveal"><div class="why-num">2</div><div class="why-icon">💎</div><h3>고소득 금융전문가</h3><p>성과에 따른 무한한 수수료. 노력만큼 보상받는 1인 사업가형 직업.</p><span class="why-hl">상위 10% 월 1,502만원</span></div>
+    <div class="why-card reveal"><div class="why-num">3</div><div class="why-icon">🎓</div><h3>삼성만의 성공 ABC</h3><p>G-College → Level 1~3 Up → 삼일회계 세무 최고위까지 단계별 전문가 양성.</p><span class="why-hl">체계적 교육 시스템</span></div>
+    <div class="why-card reveal"><div class="why-num">4</div><div class="why-icon">🌏</div><h3>종합금융 컨설팅</h3><p>기업보험·퇴직연금·개인보험·CEO플랜까지 Total Market 컨설팅 역량.</p><span class="why-hl">Blue Ocean 시장</span></div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section id="video">
+  <div class="video-inner">
+    <div class="video-left reveal">
+      <div class="sec-tag">GFC 소개 영상</div>
+      <h2 class="sec-title" style="color:var(--white);">GFC의 <span class="acc">하루</span>를<br>직접 확인해 보세요</h2>
+      <p class="sec-sub">삼성생명 GFC의 실제 업무 현장과 성공 스토리를 영상으로 만나보세요.</p>
+      <div class="vpoints">
+        <div class="vp">기업보험시장의 개척자, GFC 직무 소개</div>
+        <div class="vp">실제 GFC 하루 일과 — 출근·미팅·업무정리</div>
+        <div class="vp">성공한 GFC들의 생생한 인터뷰</div>
+        <div class="vp">삼성생명의 체계적인 교육·지원 시스템</div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="video-frame">
+        <iframe src="https://www.youtube.com/embed/2UM43lskEQk" title="삼성생명 GFC" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="gallery-header reveal">
+    <div class="sec-tag">GFC 성공 현장</div>
+    <h2 class="sec-title" style="color:var(--white);">삼성생명 GFC와 함께하는 <span style="color:var(--gold)">성공의 현장</span></h2>
+  </div>
+  <div class="gallery-big">
+    <div class="gimg gimg-big reveal">
+      <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80&auto=format&fit=crop" alt="기업 법인 컨설팅"
+        onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#002855,#004EA2)'">
+      <div class="gimg-caption"><div class="gtag">Corporate Consulting</div><h4>기업 법인 컨설팅 현장</h4><p>CEO·경영진 대상 Risk Financing Consulting</p></div>
+    </div>
+    <div class="gimg-side reveal">
+      <div class="gimg">
+        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=700&q=80&auto=format&fit=crop" alt="GFC 팀 네트워크"
+          style="height:145px;width:100%;object-fit:cover;"
+          onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#004EA2,#1A7FD4)';this.parentElement.style.minHeight='145px'">
+        <div class="gimg-caption"><h4>전국 5,000명 GFC 네트워크</h4><p>9개 지역단 · 73개 지점 운영</p></div>
+      </div>
+      <div class="gimg">
+        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=700&q=80&auto=format&fit=crop" alt="인정받는 금융전문가"
+          style="height:145px;width:100%;object-fit:cover;"
+          onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#0a3568,#1A7FD4)';this.parentElement.style.minHeight='145px'">
+        <div class="gimg-caption"><h4>인정받는 금융전문가</h4><p>MDRT · 연도상 · 플래티넘 수상</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="gallery-small">
+    <div class="gimg gimg-sm reveal">
+      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80&auto=format&fit=crop" alt="체계적 교육"
+        onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#002855,#004EA2)'">
+      <div class="gimg-caption"><div class="gtag">Training</div><h4>체계적인 교육 시스템</h4><p>G-College → 삼일회계 세무 최고위</p></div>
+    </div>
+    <div class="gimg gimg-sm reveal">
+      <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80&auto=format&fit=crop" alt="기업재무 리스크 분석"
+        onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#004EA2,#1A7FD4)'">
+      <div class="gimg-caption"><div class="gtag">Risk Analysis</div><h4>기업재무 리스크 분석</h4><p>CRETOP·KISLINE 기업조회 시스템</p></div>
+    </div>
+    <div class="gimg gimg-sm reveal">
+      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80&auto=format&fit=crop" alt="삼성생명 대한민국 1위"
+        onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#0a1628,#002855)'">
+      <div class="gimg-caption"><div class="gtag">Samsung Life</div><h4>대한민국 보험업계 1위</h4><p>총자산 315.7조 · NCSI 20년 연속 1위</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SALES MODEL -->
+<section id="sales">
+  <div class="reveal">
+    <div class="sec-tag">GFC Sales Model</div>
+    <h2 class="sec-title">Total Market <span class="acc">컨설팅</span></h2>
+    <p class="sec-sub">기업재해보장부터 퇴직연금, 개인보장, CEO 플랜까지 — 하나의 기업에서 모든 금융니즈를 해결합니다.</p>
+  </div>
+  <div class="plans-grid">
+    <div class="plan-card reveal"><div class="plan-head"><h3>🏭 기업재해보장 Plan</h3><p>Corporate Disaster Coverage</p></div><div class="plan-body"><ul><li>산재사고·민사소송 비용 대비</li><li>유족합의 재원 마련</li><li>회사·경영진 리스크 헷지</li><li>납입보험료 손비 인정</li><li>중대재해처벌법 대응</li></ul></div></div>
+    <div class="plan-card reveal"><div class="plan-head"><h3>🏦 퇴직연금 Plan</h3><p>Retirement Pension</p></div><div class="plan-body"><ul><li>근로자퇴직급여보장법 대응</li><li>DB형·DC형·IRP 설계</li><li>회사 책임 이행 지원</li><li>종업원 Loyalty 제고</li><li>퇴직연금 적립금 업계 1위</li></ul></div></div>
+    <div class="plan-card reveal"><div class="plan-head"><h3>👨‍👩‍👧 개인보장 Plan</h3><p>Personal Coverage</p></div><div class="plan-body"><ul><li>중소기업 CEO 가업승계 컨설팅</li><li>상속·증여세 납부재원 마련</li><li>부의 이전 컨설팅</li><li>종업원·가족 보장 플랜</li><li>비상장주식 가치평가 지원</li></ul></div></div>
+    <div class="plan-card reveal"><div class="plan-head"><h3>👔 CEO Plan</h3><p>Executive Strategy</p></div><div class="plan-body"><ul><li>CEO·임원 퇴직금 플랜 (법인명의)</li><li>핵심인재 보호</li><li>임원보상플랜</li><li>경영권 방어</li><li>회사 리스크 대비</li></ul></div></div>
+  </div>
+</section>
+
+<!-- INCOME -->
+<section id="income">
+  <div class="income-inner">
+    <div class="income-left reveal">
+      <div class="sec-tag">Compensation</div>
+      <h2 class="sec-title">노력만큼 <span class="acc">보상받는</span><br>소득 구조</h2>
+      <p class="sec-sub">상한선 없는 수수료 체계. 위촉 초기 활동비 지원으로 안정적인 시작이 보장됩니다.</p>
+      <div class="ibars">
+        <div class="ibar"><div class="ibar-top"><span class="ibar-label">4인 가구 최저생계비</span><span class="ibar-val">324만원</span></div><div class="ibar-track"><div class="ibar-fill" style="width:33%"></div></div></div>
+        <div class="ibar"><div class="ibar-top"><span class="ibar-label">전체가구 평균 근로소득</span><span class="ibar-val">344만원</span></div><div class="ibar-track"><div class="ibar-fill" style="width:35%"></div></div></div>
+        <div class="ibar"><div class="ibar-top"><span class="ibar-label">1년↑ 실활동 GFC 평균소득</span><span class="ibar-val" style="color:#7dd3fc">468만원</span></div><div class="ibar-track"><div class="ibar-fill" style="width:48%"></div></div></div>
+        <div class="ibar"><div class="ibar-top"><span class="ibar-label">1년↑ 실활동 상위 30% 평균</span><span class="ibar-val">981만원</span></div><div class="ibar-track"><div class="ibar-fill" style="width:100%"></div></div></div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div style="color:var(--gold);font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:24px;">다양한 활동지원제도</div>
+      <div class="sup-grid">
+        <div class="sup-item"><span class="sup-icon">🎓</span><div class="sup-text"><h4>자녀 학자금</h4><p>13차월↑ 근속 & 150만 Club↑ 자녀 연 140만원</p></div></div>
+        <div class="sup-item"><span class="sup-icon">🛍️</span><div class="sup-text"><h4>FC몰 포인트</h4><p>건강검진·리프레쉬·쇼핑 활용 포인트</p></div></div>
+        <div class="sup-item"><span class="sup-icon">🎁</span><div class="sup-text"><h4>명절 선물</h4><p>설·추석 기념 GFC 포인트 지급</p></div></div>
+        <div class="sup-item"><span class="sup-icon">💐</span><div class="sup-text"><h4>경조비 지원</h4><p>결혼·사망 시 경조비 및 화환 (전 GFC)</p></div></div>
+        <div class="sup-item"><span class="sup-icon">🏆</span><div class="sup-text"><h4>장기활동 축하금</h4><p>위촉 10/15/20/25/30년, 20~200만원</p></div></div>
+        <div class="sup-item"><span class="sup-icon">📈</span><div class="sup-text"><h4>신인 수수료 지원</h4><p>등록지원 80만원 + 정착수수료 150~230만원</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAINING -->
+<section id="training">
+  <div class="training-inner">
+    <div>
+      <div class="reveal">
+        <div class="sec-tag">Training &amp; Support</div>
+        <h2 class="sec-title">체계적인 <span class="acc">교육</span>으로<br>전문가를 만듭니다</h2>
+        <p class="sec-sub">경력이 없어도 괜찮습니다. GFC만의 단계별 교육체계가 당신을 금융전문가로 성장시킵니다.</p>
+      </div>
+      <div class="tsteps" style="margin-top:40px;">
+        <div class="tstep reveal"><div class="tstep-num">0</div><div class="tstep-body"><h4>GTC (0차)</h4><p>GFC Job 소개, 자신감 함양, Ship 고취</p><span class="tstep-badge">필수</span></div></div>
+        <div class="tstep reveal"><div class="tstep-num">1</div><div class="tstep-body"><h4>G-College (1~2차)</h4><p>법인/단체보험 기초 &amp; 법인컨설팅 실무 기초 &amp; 건강상해 기초 (연수소 집합 2박 3일)</p><span class="tstep-badge">필수</span></div></div>
+        <div class="tstep reveal"><div class="tstep-num">2</div><div class="tstep-body"><h4>3차월 체계교육 (3차)</h4><p>단체시장 스킬업, 재무제표분석 및 정관 활용</p><span class="tstep-badge">필수</span></div></div>
+        <div class="tstep reveal"><div class="tstep-num">3</div><div class="tstep-body"><h4>Level 1~3 Up</h4><p>법인절세·인사노무·중소기업 정책자금까지 단계별 심화 컨설팅 역량 강화</p><span class="tstep-badge">12~23차</span></div></div>
+        <div class="tstep reveal"><div class="tstep-num">4</div><div class="tstep-body"><h4>삼일회계 세무 최고위</h4><p>CEO 세무리스크 관리, 고능률 GFC 양성 — 최고 수준 전문가 과정</p><span class="tstep-badge">고능률 선발형</span></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="reveal">
+        <div class="sec-tag">GFC Career Path</div>
+        <h2 class="sec-title">두 가지 <span class="acc">성공의 길</span></h2>
+        <p class="sec-sub">Pro GFC로서의 고소득 전문가의 길, 또는 관리자로서 조직을 이끄는 리더의 길.</p>
+      </div>
+      <div class="career-cards" style="margin-top:32px;">
+        <div class="career-card reveal"><span class="cc-icon">💰</span><div class="cc-body"><h4>고소득의 길 — Pro GFC</h4><p>Club → 명인 → 프레스티지 → 명예임원<br>MDRT 회원자격, 연도상 수상 등 최고 권위 인정</p></div><span class="cc-arrow">→</span></div>
+        <div class="career-card reveal"><span class="cc-icon">👔</span><div class="cc-body"><h4>관리자의 길 — 지점장/지역단장</h4><p>실적 우수 GFC 내부선정 과정<br>삼성생명 직원으로 전환, 조직 리더십 발휘</p></div><span class="cc-arrow">→</span></div>
+        <div class="career-card reveal"><span class="cc-icon">🏅</span><div class="cc-body"><h4>CSA (법인컨설팅전문가)</h4><p>법인컨설팅 성과 우수 GFC 선발<br>VIP세미나·컨퍼런스·전용 배지 등 특전</p></div><span class="cc-arrow">→</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUCCESS STORIES -->
+<section id="stories">
+  <div class="stories-header reveal">
+    <div class="sec-tag">GFC Success Story</div>
+    <h2 class="sec-title">실제 <span style="color:var(--gold)">성공</span> 스토리</h2>
+  </div>
+  <div class="stories-grid">
+    <div class="story-card reveal">
+      <img class="story-img" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80" alt="성공한 GFC" onerror="this.style.display='none'">
+      <div class="story-quote">"</div>
+      <p class="story-text">1993년 위촉 후 연도상 28회 연속 수상, 삼성생명 최고영예 플래티넘 수상. 25세에 영업을 시작해 고졸로 인맥도 적었지만 컨설팅 영업으로 시장을 개척했습니다.</p>
+      <div class="story-person">
+        <div class="story-avatar" style="background:linear-gradient(135deg,#c8a84b,#e0c060);">
+          <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="16" r="8" fill="rgba(0,40,85,.8)"/><ellipse cx="22" cy="36" rx="13" ry="9" fill="rgba(0,40,85,.8)"/></svg>
+        </div>
+        <div class="story-info"><h4>맹○○ GFC</h4><p>GFC로 사회생활 시작 · 1993년 위촉</p></div>
+        <div class="story-badge">플래티넘</div>
+      </div>
+    </div>
+    <div class="story-card reveal">
+      <img class="story-img" src="https://images.unsplash.com/photo-1560472355-536de3962603?w=600&q=80" alt="기업 컨설팅" onerror="this.style.display='none'">
+      <div class="story-quote">"</div>
+      <p class="story-text">S은행 지점장 출신으로 금융기관 시절 자원이 큰 도움이 됐습니다. 연도상 24회 수상, Trend에 맞는 영업방법 제시와 협회원 대상 세미나 마케팅으로 성과를 냈습니다.</p>
+      <div class="story-person">
+        <div class="story-avatar" style="background:linear-gradient(135deg,#004EA2,#1A7FD4);">
+          <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="16" r="8" fill="rgba(255,255,255,.9)"/><ellipse cx="22" cy="36" rx="13" ry="9" fill="rgba(255,255,255,.9)"/></svg>
+        </div>
+        <div class="story-info"><h4>한○○ GFC</h4><p>S은행 지점장 출신 · 1999년 위촉</p></div>
+        <div class="story-badge">연도상 24회</div>
+      </div>
+    </div>
+    <div class="story-card reveal">
+      <img class="story-img" src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80" alt="전문 컨설턴트" onerror="this.style.display='none'">
+      <div class="story-quote">"</div>
+      <p class="story-text">신의 한 수 GFC, 인생의 2막을 멋지게 장식 중입니다. 육군대령 전역 후 국방대학교 교수를 거쳐 GFC에 도전했고 연도상 8회 수상을 달성했습니다.</p>
+      <div class="story-person">
+        <div class="story-avatar" style="background:linear-gradient(135deg,#2a5298,#4a72c4);">
+          <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="16" r="8" fill="rgba(255,255,255,.9)"/><ellipse cx="22" cy="36" rx="13" ry="9" fill="rgba(255,255,255,.9)"/></svg>
+        </div>
+        <div class="story-info"><h4>김○○ GFC</h4><p>육군대령 전역 · 2011년 위촉</p></div>
+        <div class="story-badge">연도상 8회</div>
+      </div>
+    </div>
+    <div class="story-card reveal">
+      <img class="story-img" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80" alt="팀 협업" onerror="this.style.display='none'">
+      <div class="story-quote">"</div>
+      <p class="story-text">오랜 시간 안정적인 성공을 꿈꾸려면 같이 하고 함께 성장해야 합니다. S은행 IT직군 출신으로 시장 개척을 통한 고객 발굴로 연도상 16회를 수상했습니다.</p>
+      <div class="story-person">
+        <div class="story-avatar" style="background:linear-gradient(135deg,#c8a84b,#f0d080);">
+          <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="16" r="8" fill="rgba(0,40,85,.8)"/><ellipse cx="22" cy="36" rx="13" ry="9" fill="rgba(0,40,85,.8)"/></svg>
+        </div>
+        <div class="story-info"><h4>김○○ GFC</h4><p>S은행 IT직군 출신 · 2001년 위촉</p></div>
+        <div class="story-badge">연도상 16회</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE WANT -->
+<section id="who">
+  <div style="text-align:center;margin-bottom:64px;" class="reveal">
+    <div class="sec-tag">모집 대상</div>
+    <h2 class="sec-title">이런 분을 <span class="acc">환영합니다</span></h2>
+    <p class="sec-sub" style="margin:0 auto;">학력·나이 무관, 열정이 있다면 누구나 도전할 수 있습니다.</p>
+  </div>
+  <div class="who-grid">
+    <div class="who-card reveal"><div class="who-icon">🏦</div><h3>금융권 출신자</h3><p>은행·보험·증권 등 금융업 경력자. 타 보험사·GA 30세 이상 경력자 환영.</p></div>
+    <div class="who-card reveal"><div class="who-icon">👔</div><h3>기업체 임원·중견간부</h3><p>기업 운영 경험이 있는 분. 회계·노무·인사·구매·총무 출신 중견간부.</p></div>
+    <div class="who-card reveal"><div class="who-icon">🎖️</div><h3>정년퇴직·공무원 출신</h3><p>제2의 인생을 준비하는 분. 안정적인 조직 경험을 바탕으로 새 출발.</p></div>
+    <div class="who-card reveal"><div class="who-icon">🏪</div><h3>개인사업자·자영업자</h3><p>사업 경험과 인적 네트워크를 활용하고 싶은 분.</p></div>
+    <div class="who-card reveal"><div class="who-icon">💼</div><h3>법인영업 유경험자</h3><p>B2B 영업, 법인컨설팅 경험자. 기존 역량을 극대화할 수 있는 최적의 무대.</p></div>
+    <div class="who-card reveal"><div class="who-icon">🔥</div><h3>도전 정신 있는 분</h3><p>나이·경력보다 열정이 중요합니다. 35~60대 중장년층도 활발히 활동 중!</p></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-left reveal">
+      <div class="sec-tag">Contact Us</div>
+      <h2 class="sec-title">지금 바로<br><span class="acc">상담</span> 받으세요</h2>
+      <p>삼성생명 GFC에 대해 궁금한 점이 있으시면 언제든지 연락 주세요. 담당 컨설턴트가 자세히 안내해 드립니다.</p>
+      <div class="cinfo-list">
+        <div class="cinfo">
+          <span class="cinfo-icon">💬</span>
+          <div><span class="cinfo-label">카카오톡 상담</span><span class="cinfo-val"><a href="https://open.kakao.com/o/smX1Jlli" target="_blank" style="color:var(--blue);text-decoration:none;">카카오 오픈채팅 바로가기 →</a></span></div>
+        </div>
+        <div class="cinfo">
+          <span class="cinfo-icon">📞</span>
+          <div><span class="cinfo-label">전화 상담</span><span class="cinfo-val"><a href="tel:01076871100" style="color:var(--navy);text-decoration:none;">010-7687-1100</a></span></div>
+        </div>
+        <div class="cinfo">
+          <span class="cinfo-icon">🏢</span>
+          <div><span class="cinfo-label">회사</span><span class="cinfo-val">삼성생명 GFC사업부</span></div>
+        </div>
+        <div class="cinfo">
+          <span class="cinfo-icon">📋</span>
+          <div><span class="cinfo-label">활동 지역</span><span class="cinfo-val">전국 9개 지역단 · 73개 지점</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="fg"><label>이름</label><input id="f-name" type="text" placeholder="홍길동"></div>
+          <div class="fg"><label>연락처</label><input id="f-phone" type="tel" placeholder="010-0000-0000"></div>
+        </div>
+        <div class="fg"><label>이메일</label><input id="f-email" type="email" placeholder="email@example.com"></div>
+        <div class="fg">
+          <label>현재 직업 / 경력</label>
+          <select id="f-career">
+            <option value="">선택해 주세요</option>
+            <option>금융권 출신 (은행·보험·증권)</option>
+            <option>기업체 임원·중견간부</option>
+            <option>정년퇴직·공무원 출신</option>
+            <option>개인사업자·자영업자</option>
+            <option>타 보험사·GA 경력자</option>
+            <option>기타</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>관심 분야</label>
+          <select id="f-interest">
+            <option value="">선택해 주세요</option>
+            <option>GFC 활동 전반 안내</option>
+            <option>소득·수수료 체계</option>
+            <option>교육 시스템</option>
+            <option>커리어 패스</option>
+            <option>기타 문의</option>
+          </select>
+        </div>
+        <div class="fg"><label>문의 내용</label><textarea id="f-msg" placeholder="궁금하신 점을 자유롭게 적어주세요..."></textarea></div>
+        <button class="btn-sms" onclick="sendSMS()">📱 문자로 상담 신청하기 (010-7687-1100)</button>
+        <button class="btn-kakao" onclick="sendKakao()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.477 3 2 6.477 2 10.8c0 2.7 1.6 5.1 4 6.6l-1 3.7 4.3-2.8c.9.2 1.8.3 2.7.3 5.523 0 10-3.477 10-7.8S17.523 3 12 3z"/></svg>
+          카카오 오픈채팅으로 상담 신청하기
+        </button>
+        <p class="form-note">
+          📱 문자 버튼: 문자앱이 열리고 내용 자동 입력 → 전송 버튼 한 번 더 눌러주세요<br>
+          💬 카톡 버튼: 입력 내용이 클립보드에 복사 → 카카오 오픈채팅으로 바로 연결됩니다
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">
+    <div class="footer-badge">삼성생명 GFC</div>
+    <p>Group Financial Consultant — 기업재무컨설턴트</p>
+    <p>© 2026 Samsung Life Insurance. All rights reserved.</p>
+  </div>
+  <p style="color:rgba(255,255,255,.3);font-size:11px;max-width:400px;text-align:center;line-height:1.7;">
+    본 자료는 임직원 채용이 아닌 컨설턴트 모집용 자료입니다.<br>
+    준법감시필 24-3491(GFC사업부, 2024.07.31~2025.07.30)
+  </p>
+  <div class="footer-links">
+    <a href="#who">모집 대상</a>
+    <a href="#contact">상담 신청</a>
+    <a href="tel:01076871100">010-7687-1100</a>
+  </div>
+</footer>
+
+<div class="disclaimer">
+  <p>※ 본 자료는 임직원 채용이 아닌 컨설턴트(위촉직) 모집용 자료입니다. 수수료는 회사 사정에 따라 변경될 수 있으며, 세부내용은 보험영업지침 기준 적용됩니다. 소득 관련 수치는 삼성생명 GFC사업부 통계(2023년 기준)이며 실제 소득과 상이할 수 있습니다. 손비 관련 사항은 세무사와 상담 필요.</p>
+</div>
+
+<script>
+function sendSMS() {
+  const name     = document.getElementById('f-name').value.trim();
+  const phone    = document.getElementById('f-phone').value.trim();
+  const email    = document.getElementById('f-email').value.trim();
+  const career   = document.getElementById('f-career').value;
+  const interest = document.getElementById('f-interest').value;
+  const msg      = document.getElementById('f-msg').value.trim();
+  if (!name)  { alert('이름을 입력해 주세요.'); return; }
+  if (!phone) { alert('연락처를 입력해 주세요.'); return; }
+  const body = ['[삼성생명 GFC 상담신청]','─────────────────',
+    '이름: '+name, '연락처: '+phone,
+    email    ? '이메일: '+email       : null,
+    career   ? '경력/직업: '+career   : null,
+    interest ? '관심분야: '+interest  : null,
+    msg      ? '문의내용: '+msg        : null,
+    '─────────────────','GFC 상담을 요청합니다.'
+  ].filter(Boolean).join('\n');
+  const enc = encodeURIComponent(body);
+  const ua  = navigator.userAgent;
+  window.location.href = /iPhone|iPad|iPod/i.test(ua)
+    ? 'sms:01076871100&body='+enc
+    : 'sms:01076871100?body='+enc;
+}
+
+function sendKakao() {
+  const name     = document.getElementById('f-name').value.trim();
+  const phone    = document.getElementById('f-phone').value.trim();
+  const career   = document.getElementById('f-career').value;
+  const interest = document.getElementById('f-interest').value;
+  const msg      = document.getElementById('f-msg').value.trim();
+  const content  = ['[삼성생명 GFC 상담신청]',
+    '이름: '+(name||'(미입력)'),
+    '연락처: '+(phone||'(미입력)'),
+    career   ? '경력: '+career   : null,
+    interest ? '관심분야: '+interest : null,
+    msg      ? '문의: '+msg      : null,
+  ].filter(Boolean).join('\n');
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(content).then(function() {
+      alert('📋 상담 내용이 클립보드에 복사되었습니다!\n카카오톡이 열리면 붙여넣기 후 전송해 주세요.');
+      window.open('https://open.kakao.com/o/smX1Jlli','_blank');
+    }).catch(function() {
+      window.open('https://open.kakao.com/o/smX1Jlli','_blank');
+    });
+  } else {
+    window.open('https://open.kakao.com/o/smX1Jlli','_blank');
+  }
+}
+
+// Scroll reveal
+var reveals = document.querySelectorAll('.reveal');
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e, i) {
+    if (e.isIntersecting) {
+      setTimeout(function() { e.target.classList.add('visible'); }, i * 80);
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(function(el) { observer.observe(el); });
+
+// Nav scroll
+window.addEventListener('scroll', function() {
+  var nav = document.querySelector('nav');
+  nav.style.padding = window.scrollY > 60 ? '12px 60px' : '16px 60px';
+});
+</script>
+</body>
+</html>
